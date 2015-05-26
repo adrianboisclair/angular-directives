@@ -16,7 +16,9 @@ Divider Color:  #B6B6B6
 *******************************************************************
 *******************************************************************/
 
+
 @import url(http://fonts.googleapis.com/css?family=Roboto);
+
 
 ::-webkit-scrollbar {
     width: 14px;
@@ -41,12 +43,11 @@ Divider Color:  #B6B6B6
 
 
 body {
-    background: lightgray;
     font-family: 'Roboto', sans-serif;
-    overflow: hidden;
+    /*overflow: hidden;*/
     /*overflow-y: auto;*/
-    height: 100%;
-    width: 100%;
+    /*height: 100%;*/
+    /*width: 100%;*/
 }
 
 .large {
@@ -151,14 +152,15 @@ nav {
 .content {
     display: flex;
     align-self: center;
+    justify-content: center;
     box-sizing: border-box;
     padding: 10px;
     margin-top: 7em;
-    background: transparent;
-    width: 90%;
-    max-width: 700px;
+    background: lightgray;;
+    /*width: 90%;*/
+    /*max-width: 700px;*/
     min-width: 360px;
-    max-height: 100vh;
+    /*max-height: 100%;*/
     margin-left:auto;
     margin-right:auto;
     height: 100%;
@@ -209,25 +211,63 @@ footer {
 .wrapper {
 
 }
+
+/*@keyframes growUp {*/
+    /*0% {*/
+        /*height: 300px;*/
+
+    /*}*/
+    /*33% {width:300px;}*/
+    /*66%  {height: 350px;}*/
+    /*100% { width: 400px;}*/
+/*}*/
+
 .blog-item {
     display: flex;
     flex-direction: column;
     /*border-bottom: 1px solid #B6B6B6;*/
-    margin: 1em;
+    margin: 2em;
     padding: 1em;
     background: white;
     box-shadow: darkslategray 0px 1px 1px;
-    /*height: 100%;*/
-    -webkit-transition: all .2s;
-    -moz-transition: all .2s;
-    -ms-transition: all .2s;
-    -o-transition: all .2s;
-    transition: all .2s;
+    /*height: 100px;*/
+    -webkit-transition: .3s ease-in-out;
+    -moz-transition: .3s ease-in-out;
+    -o-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    /*-webkit-transform: scale(0.8);*/
+    /*-moz-transform: scale(0.8);*/
+    /*-o-transform: scale(0.8);*/
+    /*-ms-transform: scale(0.8);*/
+    /*transform: scale(0.8);*/
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+
 }
-.blog-item:active, .blog-item:hover  {
-    -webkit-box-shadow:darkslategray 0px 10px 20px;
-    -moz-box-shadow: darkslategray 0px 10px 20px;
-    box-shadow: darkslategray 0px 10px 20px;
+.blog-item:hover  {
+    -webkit-box-shadow: 0px 10px 20px rgba(0,0,0,0.4), 5px 0px 20px rgba(0,0,0,0.4), -5px 0px 20px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 10px 20px rgba(0,0,0,0.4), 5px 0px 20px rgba(0,0,0,0.4), -5px 0px 20px rgba(0,0,0,0.4);
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.4), 5px 0px 20px rgba(0,0,0,0.4), -5px 0px 20px rgba(0,0,0,0.4);
+    -webkit-transform: scale(1.0);
+    -moz-transform: scale(1.0);
+    -o-transform: scale(1.0);
+    -ms-transform: scale(1.0);
+    transform: scale(1.0);
+    /*margin: 1em;*/
+    /*height: 300px;*/
+    /*animation-name: growUp;*/
+    /*-webkit-animation-duration: .5s;*/
+    /*-moz-animation-duration: .5s;*/
+    /*-o-animation-duration: .5s;*/
+    /*animation-duration: .5s;*/
+    z-index: 1000;
+}
+.blog-item:active {
+    /*background: #c2185b;*/
+    /*height: 300px;*/
 }
 .blog-title {
     font-size: 24pt;

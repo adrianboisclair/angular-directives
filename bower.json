@@ -1,0 +1,17 @@
+{
+  "name": "AdriansAngularJSApp",
+  "version": "0.0.0",
+  "authors": [
+    "adrianboisclair <adrianboisclair@gmail.com>"
+  ],
+  "description": "An application to showcase some AngularJS",
+  "license": "MIT",
+  "homepage": "iambad.net",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

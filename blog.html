@@ -1,0 +1,13 @@
+<md-list>
+<section onload="">
+    <div class="blog-item" ng-repeat="data in myData">
+        <div class="blog-title">{{data.title}}</div>
+        <div class="blog-content" ng-Bind-Html="data.content"></div>
+        <div class="blog-author-info"><img ng-src="{{data.author.image.url}}">
+            <div class="blog-author-link">
+                Posted By: <a href="{{data.author.url}}">{{data.author.displayName}}</a> on {{data.published}}
+            </div>
+        </div>
+    </div>
+</section>
+</md-list>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS Data Include Directive</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="blogger-ctrl" ng-controller="myController">
+            <!-- Header Import -->
+        <div ng-include="header"></div>
+        <div ng-include="footer"></div>
+        <nav class="secondary-nav">
+            <a ng-click="content='home.html'">Home</a>
+            <a ng-click="content='blog.html'">Blog</a>
+            <a ng-click="content='events.html'">Events</a>
+        </nav>
+        <div class="content" ng-include="content">
+            <!-- Content Loads Here -->
+        </div>
+    </div>
+        <!--<script src="bower_components/angular/angular.js"></script>-->
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-sanitize.js"></script>-->
+        <script src="node_modules/angular/angular.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="js/directive_angular_include.js"></script>
+</body>
+</html>

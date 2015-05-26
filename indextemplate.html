@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+
+    <style>
+        .gridListdemoDynamicTiles md-icon {
+            width: 50%;
+            height: 50%; }
+        .gridListdemoDynamicTiles md-icon svg {
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%; }
+        .gridListdemoDynamicTiles .s64 {
+            font-size: 64px; }
+        .gridListdemoDynamicTiles .s32 {
+            font-size: 48px; }
+        .gridListdemoDynamicTiles md-icon.fa {
+            display: block;
+            padding-left: 0; }
+        .gridListdemoDynamicTiles md-icon.s32 span {
+            padding-left: 8px; }
+        .gridListdemoDynamicTiles md-grid-list {
+            margin: 8px; }
+        .gridListdemoDynamicTiles .gray {
+            background: #f5f5f5; }
+        .gridListdemoDynamicTiles .green {
+            background: #b9f6ca; }
+        .gridListdemoDynamicTiles .yellow {
+            background: #ffff8d; }
+        .gridListdemoDynamicTiles .blue {
+            background: #84ffff; }
+        .gridListdemoDynamicTiles .darkBlue {
+            background: #80d8ff; }
+        .gridListdemoDynamicTiles .deepBlue {
+            background: #448aff; }
+        .gridListdemoDynamicTiles .purple {
+            background: #b388ff; }
+        .gridListdemoDynamicTiles .lightPurple {
+            background: #8c9eff; }
+        .gridListdemoDynamicTiles .red {
+            background: #ff8a80; }
+        .gridListdemoDynamicTiles .pink {
+            background: #ff80ab; }
+        .gridListdemoDynamicTiles md-grid-tile {
+            transition: all 300ms ease-out 50ms; }
+        .gridListdemoDynamicTiles md-grid-tile md-icon {
+            padding-bottom: 32px; }
+        .gridListdemoDynamicTiles md-grid-tile md-grid-tile-footer {
+            background: rgba(0, 0, 0, 0.68);
+            height: 36px; }
+        .gridListdemoDynamicTiles md-grid-tile-footer figcaption {
+            width: 100%; }
+        .gridListdemoDynamicTiles md-grid-tile-footer figcaption h3 {
+            margin: 0;
+            font-weight: 700;
+            width: 100%;
+            text-align: center; }
+    </style>
+</head>
+<body ng-app="gridListDemoApp">
+
+<div ng-controller="gridListDemoCtrl as vm" flex>
+    <md-grid-list
+            md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
+            md-row-height-gt-md="1:1" md-row-height="4:3"
+            md-gutter="8px" md-gutter-gt-sm="4px" >
+        <md-grid-tile ng-repeat="tile in vm.tiles"
+                      md-rowspan="{{tile.span.row}}"
+                      md-colspan="{{tile.span.col}}"
+                      md-colspan-sm="1"
+                      ng-class="tile.background" >
+            <md-icon md-svg-icon="{{tile.icon}}"></md-icon>
+            <md-grid-tile-footer><h3>{{tile.title}}</h3></md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
+</div>
+
+
+
+
+
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-aria/angular-aria.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.js"></script>
+<script src="/bower_components/angular-material/angular-material.js"></script>
+<script>
+
+    // Include app dependency on ngMaterial
+
+    angular
+            .module('gridListDemoApp', ['ngMaterial'])
+            .controller('gridListDemoCtrl', function($scope) {
+                this.tiles = buildGridModel({
+                    icon : "avatar:svg-",
+                    title: "Svg-",
+                    background: ""
+                });
+                function buildGridModel(tileTmpl){
+                    var it, results = [ ];
+                    for (var j=0; j<11; j++) {
+                        it = angular.extend({},tileTmpl);
+                        it.icon  = it.icon + (j+1);
+                        it.title = it.title + (j+1);
+                        it.span  = { row : 1, col : 1 };
+                        switch(j+1) {
+                            case 1:
+                                it.background = "red";
+                                it.span.row = it.span.col = 2;
+                                break;
+                            case 2: it.background = "green";         break;
+                            case 3: it.background = "darkBlue";      break;
+                            case 4:
+                                it.background = "blue";
+                                it.span.col = 2;
+                                break;
+                            case 5:
+                                it.background = "yellow";
+                                it.span.row = it.span.col = 2;
+                                break;
+                            case 6: it.background = "pink";          break;
+                            case 7: it.background = "darkBlue";      break;
+                            case 8: it.background = "purple";        break;
+                            case 9: it.background = "deepBlue";      break;
+                            case 10: it.background = "lightPurple";  break;
+                            case 11: it.background = "yellow";       break;
+                        }
+                        results.push(it);
+                    }
+                    return results;
+                }
+            })
+            .config( function( $mdIconProvider ){
+                $mdIconProvider.iconSet("avatar", 'icons/avatar-icons.svg', 128);
+            });
+
+</script>
+
+</body>
+</html>

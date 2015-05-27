@@ -5,12 +5,12 @@
             <!--<img ng-src="{{data.author.image.url}}">-->
             <!--<figcaption>{{data.title}}</figcaption>-->
         <!--</figure>-->
-        <div class="blog-title">{{data.title}}</div>
+        <div class="blog-title"><a href="{{data.url}}">{{data.title}}</a></div>
         <div class="blog-content" ng-Bind-Html="data.content"></div>
         <div class="blog-author-info">
-
             <!--<div class="blog-author-link">-->
-                <!--Posted By: <a href="{{data.author.url}}">{{data.author.displayName}}</a> on {{data.published}}-->
+            <a class="read-more" href="{{data.url}}"><div>Go to blog...</div></a>
+            Posted By: <a href="{{data.author.url}}">{{data.author.displayName}}</a> on {{data.published}}
             <!--</div>-->
         </div>
     </div>

@@ -1,6 +1,6 @@
 <md-list>
-<section onload="">
-    <div class="blog-item" ng-repeat="data in myData">
+<section class="flex-container" onload="">
+    <div class="blog-item wow slideInLeft" data-wow-duration="1s"  ng-repeat="data in myData">
         <!--<figure class="">-->
             <!--<img ng-src="{{data.author.image.url}}">-->
             <!--<figcaption>{{data.title}}</figcaption>-->
@@ -10,7 +10,7 @@
         <div class="blog-author-info">
             <!--<div class="blog-author-link">-->
             <a class="read-more" href="{{data.url}}"><div>Go to blog...</div></a>
-            Posted By: <a href="{{data.author.url}}">{{data.author.displayName}}</a> on {{data.published}}
+            <!--Posted By: <a href="{{data.author.url}}">{{data.author.displayName}}</a> on {{data.published}}-->
             <!--</div>-->
         </div>
     </div>

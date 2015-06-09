@@ -1,6 +1,5 @@
 /*******************************************************************
 *******************************************************************
-
 COLORS USED:
 
 Dark Primary:   #C2185B
@@ -11,22 +10,18 @@ Accent Color:   #448AFF
 Primary Text:   #212121
 Secondary Clr:  #727272
 Divider Color:  #B6B6B6
-
-
 *******************************************************************
 *******************************************************************/
 
-
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 
-
 ::-webkit-scrollbar {
-    width: 14px;
+    width: 10px;
     height: 18px;
 }
 ::-webkit-scrollbar-thumb {
-    height: 6px;
-    border: 4px solid rgba(0, 0, 0, 0);
+    height: 1px;
+    border: 2px solid rgba(0, 0, 0, 0);
     background-clip: padding-box;
     -webkit-border-radius: 7px;
     background-color: rgba(0, 0, 0, 0.15);
@@ -41,7 +36,6 @@ Divider Color:  #B6B6B6
     background-color: transparent;
 }
 
-
 body {
     font-family: 'Roboto', sans-serif;
     background: lightgray;
@@ -49,6 +43,16 @@ body {
     /*overflow-y: auto;*/
     /*height: 100%;*/
     /*width: 100%;*/
+}
+
+.flex-container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .large {
@@ -76,6 +80,10 @@ header {
     text-indent: 2em;
 }
 div.title-bar{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     align-items: center;
     background-color: #c2185b;
@@ -89,7 +97,11 @@ div.title-bar{
     padding: 12px 15px;
 
 }
-
+.header-right {
+    position: absolute;
+    right: 0;
+    padding-right: 25px;
+}
 #logo {
     background: url('../img/angularjs.png') no-repeat;
     background-size: contain;
@@ -103,11 +115,16 @@ nav {
     z-index: 80;
 }
 nav.header {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     justify-content: space-between;
     position:fixed;
     top:0;
     left:0;
+    -webkit-flex-direction: row;
     flex-direction: row;
     background-color: #E91E63;
     color: white;
@@ -125,7 +142,7 @@ nav {
     display:flex;
     position: fixed;
     top:80px;
-    height: 2em;
+    height: 50px;
     width: 100%;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     justify-content: flex-start;
@@ -151,6 +168,10 @@ nav {
     color: #FFFFFF;
 }
 .content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     align-self: center;
     justify-content: center;
@@ -186,11 +207,11 @@ footer {
 .fab_main_btn{
     position: absolute;
     right: 15px;
-    top: 65px;
+    top: 100px;
     width:60px;
     height:60px;
     border-radius:100%;
-    background: #448AFF;
+    background: rgba(68, 138, 255, .8);
     border:none;
     outline:none;
     color:#FFF;
@@ -206,54 +227,37 @@ footer {
     transform:rotate(45deg);
     -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-
 }
-
-
+.fab_main_btn:hover {
+    background: rgba(68, 138, 255, 1)
+}
 .wrapper {
 
 }
-
-/*@keyframes growUp {*/
-    /*0% {*/
-        /*height: 300px;*/
-
-    /*}*/
-    /*33% {width:300px;}*/
-    /*66%  {height: 350px;}*/
-    /*100% { width: 400px;}*/
-/*}*/
 
 .blog-item a {
     text-decoration: none;
     color: inherit;
 }
 .blog-item {
-
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
-    flex-direction: column;
-    /*border-bottom: 1px solid #B6B6B6;*/
+    -webkit-flex-direction: column;
+    flex-direction: row;
     margin: 2em;
-    max-width: 400px;
-    /*padding: 1em;*/
+    width: 100%;
     background: white;
     box-shadow: darkslategray 0px 1px 1px;
-    /*height: 100px;*/
-    -webkit-transition: .3s ease-in-out;
-    -moz-transition: .3s ease-in-out;
-    -o-transition: .3s ease-in-out;
-    transition: .3s ease-in-out;
-    /*-webkit-transform: scale(0.8);*/
-    /*-moz-transform: scale(0.8);*/
-    /*-o-transform: scale(0.8);*/
-    /*-ms-transform: scale(0.8);*/
-    /*transform: scale(0.8);*/
     -webkit-transition: all .5s;
     -moz-transition: all .5s;
     -ms-transition: all .5s;
     -o-transition: all .5s;
     transition: all .5s;
-
+    max-height: 100vh;
+    overflow: hidden;
 }
 .blog-item:hover  {
     -webkit-box-shadow: 0px 10px 20px rgba(0,0,0,0.4), 5px 0px 20px rgba(0,0,0,0.4), -5px 0px 20px rgba(0,0,0,0.4);
@@ -271,7 +275,7 @@ footer {
     /*-moz-animation-duration: .5s;*/
     /*-o-animation-duration: .5s;*/
     /*animation-duration: .5s;*/
-    z-index: 1000;
+    /*z-index: 1000;*/
 }
 .blog-item:active {
     /*background: #c2185b;*/
@@ -281,16 +285,21 @@ footer {
     font-size: 24pt;
     /*padding-bottom: 10px;*/
     background: #E91E63;
+    order:2;
 }
 .blog-content {
-    max-width: 700px;
-    min-width: 360px;
+    /*max-width: 700px;*/
+    /*min-width: 360px;*/
     text-align: justify;
     justify-content: space-between;
+}
+.blog-text {
+
 }
 .blog-content img {
     /*float: left;*/
     max-width: 400px;
+    max-height: 50vh;
     /*padding-right: 15px;*/
 }
 a.read-more{
